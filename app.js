@@ -1437,6 +1437,40 @@ If preview reports "execution reverted":
   const _connectBtn = $("connectBtn");
   if (_connectBtn) _connectBtn.addEventListener("click", connect);
 
+  // 刷新网页后自动重连：已授权的注入式钱包无需再点「连接钱包」，且切换账户/网络会自动同步
+  (function autoReconnect() {
+    const w = injectedWallet() || window.ethereum;
+    if (!w) return;
+    if (w.on) {
+      w.on("accountsChanged", (accs) => {
+        if (accs && accs.length) {
+          walletProvider = w;
+          setAccount(accs[0]);
+          connMsg("已连接 " + shortAddr(accs[0]));
+          toast("已切换账户", "ok");
+        } else {
+          account = null;
+          walletProvider = null;
+          const cb = $("connectBtn");
+          if (cb) cb.textContent = "连接钱包";
+          connMsg("已断开钱包");
+          const panel = $("walletPanel");
+          if (panel) panel.classList.add("hidden");
+        }
+      });
+      w.on("chainChanged", () => location.reload());
+    }
+    w.request({ method: "eth_accounts" })
+      .then((accs) => {
+        if (accs && accs.length) {
+          walletProvider = w;
+          setAccount(accs[0]);
+          connMsg("已连接 " + shortAddr(accs[0]));
+        }
+      })
+      .catch(() => {});
+  })();
+
   // 取消按钮不能用内联 onclick（app.js 是 IIFE，closeQr 不是全局函数），必须在这里绑定
   const _qrCancel = $("qrCancel");
   if (_qrCancel) _qrCancel.addEventListener("click", closeQr);
@@ -1592,7 +1626,11 @@ If preview reports "execution reverted":
     heroVals = cached;
     heroReady = true;
   }
-  setInterval(() => loadInfo().catch(() => {}), 30000); // auto refresh mint progress
+  // 自动刷新：每 10 秒刷新全局 mint 进度，若已连钱包则同时刷新「基础+推广」剩余次数
+  setInterval(async () => {
+    try { await loadInfo(); } catch {}
+    if (account && info) { try { await refreshWallet(); } catch {} }
+  }, 10000);
   applyLang(LANG);
   loadInfo().catch(() => {
     // 读不到链上参数时退回默认值，避免一直显示"读取中"
