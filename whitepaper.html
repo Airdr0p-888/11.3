@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>火星币 · 火星币 白皮书</title>
+<meta name="description" content="火星币 (火星币) 白皮书：面向持有 .ai Agent ID 的币安 Agentic Wallet 的公平铸造，100% 进入 LP、LP 永久锁入黑洞、合约无提取权限。">
+<link rel="stylesheet" href="style.css">
+<style>
+  .wp-wrap { max-width: 860px; margin: 0 auto; padding: 26px 18px 60px; }
+  .wp-head { text-align: center; margin-bottom: 30px; }
+  .wp-head .eyebrow { letter-spacing: 3px; color: var(--gold); font-size: 12px; font-weight: 700; }
+  .wp-head h1 { font-size: 30px; margin: 8px 0 14px; }
+  .wp-meta { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; color: var(--muted); font-size: 13px; }
+  .wp-meta b { color: var(--text); }
+  .paper h3 { margin: 30px 0 10px; font-size: 19px; color: var(--gold-2); border-left: 3px solid var(--gold); padding-left: 10px; }
+  .paper p, .paper li { color: var(--text); line-height: 1.75; font-size: 14.5px; }
+  .paper ul { padding-left: 20px; }
+  .paper li { margin-bottom: 8px; }
+  .paper code { background: var(--panel-2); padding: 1px 6px; border-radius: 5px; color: var(--gold-2); font-size: 13px; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 6px 16px; margin-top: 14px; }
+  .panel .row { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px dashed var(--line); font-size: 13.5px; }
+  .panel .row:last-child { border-bottom: none; }
+  .panel .row span:first-child { color: var(--muted); }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .panel a { color: var(--gold-2); text-decoration: none; word-break: break-all; }
+  .panel a:hover { text-decoration: underline; }
+  .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 16px 0; }
+  .pillar { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .pillar b { color: var(--gold-2); display: block; margin-bottom: 4px; }
+  .pillar span { color: var(--muted); font-size: 13px; }
+  @media (max-width: 600px) { .pillars { grid-template-columns: 1fr; } }
+  body.lang-zh .en { display: none; }
+  body.lang-en .zh { display: none; }
+</style>
+</head>
+<body class="lang-zh">
+<div class="glow"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">AI</div>
+    <div>
+      <h1>火星币 <span class="tag">火星币</span></h1>
+      <p>Agent ID 专属铸造 · BSC</p>
+    </div>
+  </div>
+  <div class="topbar-actions">
+    <a class="btn btn-ghost" href="index.html">← <span class="zh">返回</span><span class="en">Back</span></a>
+    <button id="langBtn" class="btn btn-ghost">EN</button>
+  </div>
+</header>
+
+<div class="wp-wrap">
+  <div class="wp-head">
+    <div class="eyebrow"><span class="zh">白皮书</span><span class="en">WHITEPAPER</span></div>
+    <h1><span class="zh">火星币 白皮书</span><span class="en">火星币 Whitepaper</span></h1>
+    <div class="wp-meta">
+      <div><span class="zh">版本</span><span class="en">Version</span> <b>1.0</b></div>
+      <div><span class="zh">日期</span><span class="en">Date</span> <b><span class="zh">2026 年 10 月</span><span class="en">October 2026</span></b></div>
+      <div><span class="zh">链</span><span class="en">Chain</span> <b>BNB Smart Chain (BEP-20)</b></div>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="zh">
+      <h3>1. 火星币 是什么</h3>
+      <p>火星币（火星币）是 BNB 智能链上的 meme 代币，采用链上公平铸造，仅对持有 <code>.ai</code> Agent ID 的币安 Agentic Wallet 开放。机制参考 $JAGENT（jager.live）：代币只在份额被铸造时产生，无预售、无私募、无团队预留。项目由社区驱动，与币安官方无隶属关系。</p>
+
+      <h3>2. 四大核心设计</h3>
+      <div class="pillars">
+        <div class="pillar"><b>100% 进 LP</b><span>每一笔铸造资金全部进入流动性底池，不抽成、不进金库。</span></div>
+        <div class="pillar"><b>3% 税费（销毁+分红+LP）</b><span>买入 / 卖出各收取 3% 税费：1% 销毁进黑洞、1% 持币分红以 USDT 发放、1% 自动加 LP（开盘 LP 打入黑洞）。</span></div>
+        <div class="pillar"><b>LP 永久锁仓</b><span>流动性代币自动锁入黑洞地址（0xdead），永久锁定，任何人都无法撤出。</span></div>
+        <div class="pillar"><b>零提取权限</b><span>合约不包含任何提款 / owner 函数，开发团队无法动用池内资产。</span></div>
+      </div>
+
+      <h3>3. 代币</h3>
+      <ul>
+        <li>名称 / 符号：火星币 / 火星币，18 位小数，BEP-20 标准。</li>
+        <li>总供应量仅在铸造时产生，硬上限由代币合约强制执行。</li>
+        <li>买入税 3%、卖出税 3%，写死在合约代码中：1% 销毁、1% 持币分红（USDT）、1% 回流自动加 LP。</li>
+        <li>铸造阶段（开盘前）火星币 不可转账；由 owner 在打满前手动开盘（launch）：合约把募集的 USDT 与等值的已铸代币注入 PancakeSwap V2 建立流动性，未售出的剩余代币留在黑洞等效销毁，随后丢弃权限（renounce）、LP 打入黑洞并解除转账锁定。注意：打满后黑洞已无剩余代币，若此时才开盘将不会建立流动性，务必在打满前开盘。</li>
+      </ul>
+
+      <h3>4. 铸造</h3>
+      <ul>
+        <li>资格：发起交易的钱包必须持有 <code>.ai</code> Agent ID（链上读取 SPACE ID 注册表）。</li>
+        <li>额度：每个 Agent ID 10 份；每笔交易最多 10 份。</li>
+        <li>支付：用 USDT（先 approve 授权，再带最高成本 maxCost 调用 mint）即可。</li>
+        <li>铸造资金 100% 进入 LP 底池，LP 代币发射后自动打入黑洞、永久锁定。</li>
+      </ul>
+
+      <h3>5. 流动性与税费</h3>
+      <ul>
+        <li>开盘时，募集到的 USDT 与等值的已铸代币注入 火星币/USDT 流动性池，未售出的剩余代币留在黑洞；LP 打入黑洞。</li>
+        <li>合约不含任何 withdraw / owner 类函数，团队无权限提取池内资金，资金安全由代码保证。</li>
+      </ul>
+
+      <h3>6. 独立声明</h3>
+      <p>火星币 是独立社区项目，与币安、SPACE ID、PancakeSwap 等均无关联，也未获其背书，仅使用其公开链上合约与标准接口。</p>
+    </div>
+
+    <div class="en">
+      <h3>1. What 火星币 is</h3>
+      <p>火星币 (火星币) is a meme token on BNB Smart Chain with a fair, on-chain mint reserved for Binance Agentic Wallets holding a <code>.ai</code> Agent ID. It follows the $JAGENT (jager.live) mint mechanism: supply only comes into existence when shares are minted — no presale, no private round, no team allocation. A community-driven project, independent of Binance.</p>
+
+      <h3>2. Four Core Principles</h3>
+      <div class="pillars">
+        <div class="pillar"><b>100% to LP</b><span>Every mint goes entirely into the liquidity pool — no skim, no treasury cut.</span></div>
+        <div class="pillar"><b>3% tax (burn + dividend + LP)</b><span>A 3% buy/sell tax: 1% burn, 1% USDT holder dividend, 1% auto-LP locked to the burn address at launch.</span></div>
+        <div class="pillar"><b>LP locked forever</b><span>Liquidity tokens are auto-locked into the burn address (0xdead), permanently — nobody can remove them.</span></div>
+        <div class="pillar"><b>Zero withdrawal power</b><span>The contract has no withdraw / owner functions; the team cannot touch pooled funds.</span></div>
+      </div>
+
+      <h3>3. Token</h3>
+      <ul>
+        <li>Name / symbol: 火星币 / 火星币, 18 decimals, BEP-20.</li>
+        <li>Supply is created only by minting; the hard cap is enforced by the token contract.</li>
+        <li>Buy tax 3% and sell tax 3%, fixed in code: 1% burn, 1% USDT holder dividend, 1% auto-LP.</li>
+        <li>火星币 cannot be transferred before the pool opens. The owner launches manually before the cap is reached: the contract injects the raised USDT and an equal amount of minted tokens into PancakeSwap V2, unsold tokens stay in the burn address (0xdead), then renounces ownership and sends LP to 0xdead, lifting the transfer lock. Note: after the cap the burn address is empty, so a launch then creates no liquidity — always launch before the cap.</li>
+      </ul>
+
+      <h3>4. Minting</h3>
+      <ul>
+        <li>Eligibility: the sending wallet must hold a <code>.ai</code> Agent ID (read on-chain from the SPACE ID registry).</li>
+        <li>Quota: 10 shares per Agent ID; max 10 shares per transaction.</li>
+        <li>Pay with USDT (approve, then mint with a maximum cost maxCost).</li>
+        <li>100% of every mint goes into the LP pool; LP tokens are auto-sent to the burn address (0xdead) at launch.</li>
+      </ul>
+
+      <h3>5. Liquidity &amp; Tax</h3>
+      <ul>
+        <li>At launch, the raised USDT and an equal amount of minted tokens are added to the 火星币/USDT pool; unsold remaining tokens stay in the burn address (0xdead); LP tokens are auto-sent to 0xdead.</li>
+        <li>The 3% buy/sell tax (1% burn + 1% dividend + 1% LP) is fixed in code and cannot be changed.</li>
+        <li>The contract contains no withdraw / owner functions, so the team has no authority to extract pooled funds — safety is guaranteed by code.</li>
+      </ul>
+
+      <h3>6. Independence</h3>
+      <p>火星币 is an independent community project. It is not affiliated with, endorsed by, or operated by Binance, SPACE ID, PancakeSwap, or any other party; it only uses their public on-chain contracts and standard interfaces.</p>
+    </div>
+
+    <h3><span class="zh">合约地址</span><span class="en">Contracts</span></h3>
+    <div class="panel" id="addrBox">
+      <div class="row"><span><span class="zh">铸造 / 代币合约</span><span class="en">Mint &amp; Token</span></span><span class="mono"><a href="https://bscscan.com/address/0xF87916Be83dF9d592f054b4cC0B4ebE6FA3b992B" target="_blank" rel="noopener">0xF87916Be83dF9d592f054b4cC0B4ebE6FA3b992B</a></span></div>
+      <div class="row"><span>USDT</span><span class="mono"><a href="https://bscscan.com/address/0x55d398326f99059fF775485246999027B3197955" target="_blank" rel="noopener">0x55d398326f99059fF775485246999027B3197955</a></span></div>
+      <div class="row"><span><span class="zh">Agent ID 注册表</span><span class="en">Agent ID registry</span></span><span class="mono"><a href="https://bscscan.com/address/0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F" target="_blank" rel="noopener">0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F</a></span></div>
+    </div>
+  </div>
+</div>
+
+<footer data-i18n="footer">火星币 · 火星币 — 本页不托管资产，请自行核对合约地址 · <a href="index.html">返回首页</a></footer>
+
+<script>
+(function () {
+  var btn = document.getElementById("langBtn");
+  function set(l) {
+    document.body.className = "lang-" + l;
+    document.documentElement.lang = l === "zh" ? "zh-CN" : "en";
+    btn.textContent = l === "zh" ? "EN" : "中文";
+    try { localStorage.setItem("agt-lang", l); } catch (e) {}
+  }
+  var q = new URLSearchParams(location.search).get("lang");
+  var saved = q === "zh" || q === "en" ? q : (localStorage.getItem("agt-lang") || "zh");
+  btn.onclick = function () { set(document.body.className === "lang-zh" ? "en" : "zh"); };
+  set(saved);
+})();
+</script>
+
+<script>
+(function () {
+  var TOKEN = "0xF87916Be83dF9d592f054b4cC0B4ebE6FA3b992B";
+  var RPC = "https://bsc-dataseed.binance.org/";
+  var DEF_NAME = "火星币", DEF_SYMBOL = "火星币";
+
+  function hexToBytes(h){ h = h.replace(/^0x/,""); var a = []; for (var i=0;i<h.length;i+=2) a.push(parseInt(h.substr(i,2),16)); return a; }
+  function decodeString(hex){
+    hex = (hex || "").replace(/^0x/,"");
+    if (hex.length === 64) { // 固定长度 bytes32 类型
+      var b = hexToBytes(hex), out = [];
+      for (var i=0;i<b.length;i++){ if (b[i]===0) break; out.push(b[i]); }
+      return new TextDecoder("utf-8").decode(Uint8Array.from(out));
+    }
+    if (hex.length < 128) return "";
+    var len = parseInt(hex.substr(64,64),16);
+    if (!len || len > hex.length/2) return "";
+    var dataHex = hex.substr(128, len*2);
+    return new TextDecoder("utf-8").decode(Uint8Array.from(hexToBytes(dataHex)));
+  }
+  function rpc(data){
+    return fetch(RPC, { method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ jsonrpc:"2.0", id:1, method:"eth_call", params:[{ to: TOKEN, data:data }, "latest"] }) })
+      .then(function(r){ return r.json(); }).then(function(j){ return (j && j.result) ? j.result : "0x"; });
+  }
+  function applyToken(name, symbol){
+    name = name || DEF_NAME; symbol = symbol || DEF_SYMBOL;
+    if (name === DEF_NAME && symbol === DEF_SYMBOL) return; // 链上值等于默认则保留手写文案
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false), nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function(n){
+      if (n.nodeValue.indexOf(DEF_NAME) >= 0 || n.nodeValue.indexOf(DEF_SYMBOL) >= 0) {
+        n.nodeValue = n.nodeValue.split(DEF_NAME).join(name).split(DEF_SYMBOL).join(symbol);
+      }
+    });
+    var meta = document.querySelector('meta[name="description"]');
+    if (meta) { var c = meta.getAttribute("content"); meta.setAttribute("content", c.split(DEF_NAME).join(name).split(DEF_SYMBOL).join(symbol)); }
+    if (document.title) document.title = document.title.split(DEF_NAME).join(name).split(DEF_SYMBOL).join(symbol);
+  }
+  Promise.all([ rpc("0x06fdde03"), rpc("0x95d89b41") ])
+    .then(function(res){ applyToken(decodeString(res[0]), decodeString(res[1])); })
+    .catch(function(){ /* RPC 失败 / 离线：保留默认文案 */ });
+})();
+</script>
+</body>
+</html>
