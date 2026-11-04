@@ -9,6 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
+  <style>
+    .table-wrap{overflow-x:auto}
+    .rank-table{width:100%;border-collapse:collapse;font-size:14px}
+    .rank-table th,.rank-table td{padding:9px 8px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left;white-space:nowrap}
+    .rank-table th{color:#9fb0c0;font-weight:600}
+    .rank-table td.rank-addr{font-family:ui-monospace,Menlo,Consolas,monospace}
+    .rank-empty{text-align:center;color:#9fb0c0;padding:18px}
+  </style>
 </head>
 <body>
 <div class="glow"></div>
@@ -50,7 +58,7 @@
   </div>
   <div class="hero-cta">
     <a href="#mint" class="btn btn-primary" data-i18n="cta.mint">立即铸造</a>
-    <a href="https://bscscan.com/address/0xb144cd7a29c77f19034b1384b0f03a3f367f5422" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="cta.scan">BscScan 核验</a>
+    <a href="https://bscscan.com/address/0x34d918240c7c43c454d68e67b3eb82e95cfd5ce8" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="cta.scan">BscScan 核验</a>
   </div>
 </section>
 
@@ -82,7 +90,7 @@
   <div class="card">
     <div class="sec-head">
       <h3 data-i18n="sec.title">合约安全检测</h3>
-      <a class="btn btn-mini" href="https://bscscan.com/address/0xb144cd7a29c77f19034b1384b0f03a3f367f5422" target="_blank" rel="noopener" data-i18n="sec.verify">BscScan 核验</a>
+      <a class="btn btn-mini" href="https://bscscan.com/address/0x34d918240c7c43c454d68e67b3eb82e95cfd5ce8" target="_blank" rel="noopener" data-i18n="sec.verify">BscScan 核验</a>
     </div>
     <div class="sec-top">
       <div class="sec-score">
@@ -91,7 +99,7 @@
         <small data-i18n="sec.badges">高危 0 · 中危 0 · 提示 2</small>
       </div>
       <div class="sec-rows">
-        <div><span data-i18n="sec.contract">合约</span><b><span id="secName">火星币</span> (<a id="secAddrLink" href="https://bscscan.com/address/0xb144cd7a29c77f19034b1384b0f03a3f367f5422" target="_blank" rel="noopener">0x3616…A6A3</a>)</b></div>
+        <div><span data-i18n="sec.contract">合约</span><b><span id="secName">火星币</span> (<a id="secAddrLink" href="https://bscscan.com/address/0x34d918240c7c43c454d68e67b3eb82e95cfd5ce8" target="_blank" rel="noopener">0x3616…A6A3</a>)</b></div>
         <div><span data-i18n="sec.creator">创建者 / 拥有者</span><b>0xF6…9423</b></div>
         <div><span data-i18n="sec.liquidity">开盘动作</span><b data-i18n="sec.liquidityV">等量代币 + 募集 USDT 注入 PancakeSwap V2 交易对</b></div>
       </div>
@@ -150,7 +158,7 @@
 
       <details class="adv">
         <summary data-i18n="adv.summary">高级：合约 / 代币参数</summary>
-        <div class="field"><label data-i18n="label.contract">合约地址</label><input id="contract" value="0xb144cd7a29c77f19034b1384b0f03a3f367f5422" /></div>
+        <div class="field"><label data-i18n="label.contract">合约地址</label><input id="contract" value="0x34d918240c7c43c454d68e67b3eb82e95cfd5ce8" /></div>
         <div class="field"><label data-i18n="label.usdt">USDT 合约</label><input id="usdt" value="0x55d398326f99059fF775485246999027B3197955" /></div>
         <div class="field"><label data-i18n="label.nft">Agent ID NFT</label><input id="nft" value="0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F" /></div>
       </details>
@@ -212,13 +220,7 @@
   <!-- Agent ID 申请教程 -->
   <div class="card">
     <h3 data-i18n="card.apply">如何申请 Agent ID</h3>
-    <div class="invite">
-      <div class="invite-txt">
-        <b data-i18n="invite.label">专属邀请链接</b>
-        <span>web3.binance.com/agent-id/aveai?src=user_share</span>
-      </div>
-      <a class="btn btn-primary" href="https://web3.binance.com/agent-id/aveai?src=user_share" target="_blank" rel="noopener" data-i18n="invite.go">去注册</a>
-    </div>
+
     <div class="steps steps-4">
       <div class="step">
         <div class="num">01</div>
@@ -249,13 +251,24 @@
     <h3 data-i18n="card.social">社区与推广入口</h3>
     <div class="promo">
       <a href="https://web3.binance.com/agent-id/aveai?src=user_share" target="_blank" rel="noopener">
-        <i class="ic ic-ai">ID</i><b data-i18n="p1.b">专属邀请链接</b><span data-i18n="p1.s">去注册</span>
+        <i class="ic ic-ai">ID</i><b data-i18n="p1.b">币安ai钱包申请链接</b><span data-i18n="p1.s">去注册</span>
       </a>
-      <a href="https://x.com/marscoinbnbcc" target="_blank" rel="noopener">
+      <a href="https://x.com/marscoin_bsc1" target="_blank" rel="noopener">
         <i class="ic ic-x">X</i><b data-i18n="p3.b">X / Twitter</b><span data-i18n="p3.s">官方推特</span>
       </a>
     </div>
 
+  </div>
+
+  <!-- 铸造排行榜 -->
+  <div class="card">
+    <h3>铸造排行榜 · 最近 10 笔</h3>
+    <div class="table-wrap">
+      <table class="rank-table">
+        <thead><tr><th>#</th><th>地址</th><th>时间</th><th>金额(USDT)</th></tr></thead>
+        <tbody id="rankBody"><tr><td colspan="4" class="rank-empty">加载中…</td></tr></tbody>
+      </table>
+    </div>
   </div>
 
   <!-- 常见问题 -->
